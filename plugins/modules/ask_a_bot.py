@@ -1,4 +1,3 @@
-# In your_custom_module.py
 from ansible.module_utils.basic import AnsibleModule
 # The import path is relative to the collection's 'plugins' directory
 from ansible_collections.ahmedzbyr.my_gem_apis.plugins.module_utils.gem.gemini_api import GeminiAPI

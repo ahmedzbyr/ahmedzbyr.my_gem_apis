@@ -1,0 +1,5 @@
+collections:
+  - name: ahmedzbyr.my_gem_apis
+    version: 1.0.0
+    type: git
+    source: https://github.com/ahmedzbyr/ahmedzbyr.my_gem_apis.git
