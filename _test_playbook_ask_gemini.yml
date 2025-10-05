@@ -1,0 +1,28 @@
+---
+- name: Query the Gemini API using a custom module
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  # Load the encrypted API key from the vault file
+  vars_files:
+    - _secrets.yml
+
+  tasks:
+    - name: "Call the Gemini module from the 'ahmedzbyr.my_gem_apis' collection"
+      # Using the Fully Qualified Collection Name (FQCN)
+      ahmedzbyr.my_gem_apis.query_gemini:
+        # Pass the API key securely from the loaded vault variable
+        google_api_key: "{{ GEMINI_API_KEY }}"
+        prompt: "In the style of a pirate, explain what CI/CD is in two sentences."
+
+      # Register the output of the module into a variable
+      register: gemini_result
+
+    - name: "Display the response from Gemini"
+      debug:
+        msg: |
+          Prompt Sent: "{{ gemini_result.original_prompt }}"
+
+          Gemini's Answer:
+          "{{ gemini_result.response }}"
