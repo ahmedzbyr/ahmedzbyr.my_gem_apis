@@ -2,6 +2,56 @@
 
 This blog post will guide you through the process of creating an Ansible collection. We'll cover naming conventions, setting up a repository, initializing the collection structure, adding custom modules and module utilities, and finally, testing the collection in a playbook.
 
+---
+
+## TLDR; Take it for a spin - Quick Start Guide
+
+Follow these steps to set up your environment and run the Ansible playbook.
+
+### 1. Prepare Your Environment 🛠️
+
+First, create an isolated Python environment and install the necessary dependencies, including your Ansible Collection.
+
+```bash
+# Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install Ansible and the Google AI SDK
+pip install ansible google-generativeai
+
+# Install the Ansible Collection
+ansible-galaxy collection install ahmedzbyr.my_gem_apis
+```
+
+### 2. Secure Your API Key 🔑
+
+Next, use **Ansible Vault** to securely store your Gemini API key.
+
+1.  Create a new encrypted vault file. You will be prompted to set a password for it.
+
+    ```bash
+    ansible-vault create secrets.yml
+    ```
+
+2.  After you set the password, the file will open in your default editor. Add your API key in the following format:
+
+    ```yaml
+    # secrets.yml
+    GEMINI_API_KEY: 'your-api-key-goes-here'
+    ```
+
+    Save and close the file.
+
+### 3. Run the Playbook 🚀
+
+Finally, execute the playbook. You'll be prompted to enter the vault password you created in the previous step.
+
+```bash
+ansible-playbook --ask-vault-pass _test_playbook_ask_gemini.yml
+```
+---
+
 ## Naming Your Collection
 
 - Collection names consist of a namespace and a name, separated by a period (`.`).
