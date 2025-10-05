@@ -1,10 +1,4 @@
-# Creating an Ansible Collection
-
-This blog post will guide you through the process of creating an Ansible collection. We'll cover naming conventions, setting up a repository, initializing the collection structure, adding custom modules and module utilities, and finally, testing the collection in a playbook.
-
----
-
-## TLDR; Take it for a spin - Quick Start Guide
+# TLDR; Take it for a spin - Quick Start Guide
 
 Follow these steps to set up your environment and run the Ansible playbook.
 
@@ -51,6 +45,10 @@ Finally, execute the playbook. You'll be prompted to enter the vault password yo
 ansible-playbook --ask-vault-pass _test_playbook_ask_gemini.yml
 ```
 ---
+
+# Creating an Ansible Collection
+
+This post will guide you through the process of creating an Ansible collection. We'll cover naming conventions, setting up a repository, initializing the collection structure, adding custom modules and module utilities, and finally, testing the collection in a playbook.
 
 ## Naming Your Collection
 
