@@ -51,3 +51,16 @@
 #   group_name:
 #     - module1
 #     - module2
+
+requires_ansible: ">=2.15"
+
+plugin_routing:
+  modules:
+    # This section tells Ansible which python packages are required
+    # for your modules on the target/remote host.
+    query_gemini:
+      python:
+        # The name of the Python package on PyPI
+        - name: google-generativeai
+          # You can specify a version requirement
+          # version: '>=0.5.0'
